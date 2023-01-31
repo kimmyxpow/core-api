@@ -1,8 +1,19 @@
+import { IsNotEmpty } from 'class-validator'
+
 export class CreateStudentDto {
-    rfid: string;
-    nis: string;
-    nama: string;
-    rombel: string;
-    rayon: string;
+    @IsNotEmpty()
+    rfid: string
+
+    @IsNotEmpty()
+    nis: string
+
+    @IsNotEmpty()
+    name: string
+
+    @IsNotEmpty()
+    class: string
+
+    @IsNotEmpty()
+    region: string
 }
 

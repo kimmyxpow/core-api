@@ -1,21 +1,15 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity()
-export class Machine {
+export class Region {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
     @Column()
-    address: string
+    name: string
 
     @Column()
-    room: string
-
-    @Column()
-    description: string
-
-    @Column({ default: false })
-    is_attendance: boolean
+    teacher: string
 
     @CreateDateColumn()
     created_at: Date
