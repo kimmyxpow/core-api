@@ -7,6 +7,8 @@ import { MachinesModule } from './machines/machines.module';
 import { Machine } from './machines/entities/machine.entity';
 import { Student } from './students/entities/student.entity';
 import { StudentsModule } from './students/students.module';
+import { ClassModule } from './class/class.module';
+import { RegionModule } from './region/region.module';
 
 @Module({
     imports: [
@@ -23,6 +25,8 @@ import { StudentsModule } from './students/students.module';
         }),
         MachinesModule,
         StudentsModule,
+        ClassModule,
+        RegionModule,
     ],
     controllers: [AppController],
     providers: [AppService],
