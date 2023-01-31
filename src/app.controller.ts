@@ -1,10 +1,11 @@
 import { Controller, Get, Logger } from '@nestjs/common'
 import { AppService } from './app.service'
 import * as amqplib from 'amqplib'
+import { ConfigService } from '@nestjs/config'
 
 @Controller()
 export class AppController {
-    constructor(private readonly appService: AppService) { }
+    constructor(private readonly appService: AppService, private configService: ConfigService) { }
 
     @Get()
     getHello(): string {
@@ -15,8 +16,8 @@ export class AppController {
         Logger.error("Ini ceritanya apa hayo hehehehehehe kon", 'OtaknyaError')
         Logger.error("Yahaha wahyu", 'OtaknyaError')
 
-        const queue = 'wiksmart'
-        const conn = await amqplib.connect('amqp://smkwikramabogor:qwerty@rmq2.pptik.id:5672//smkwikramabogor')
+        const queue = this.configService.get<string>('RMQ_QUEUE')
+        const conn = await amqplib.connect(this.configService.get<string>('RMQ_URL'))
 
         const channel = await conn.createChannel()
         await channel.assertQueue(queue)
