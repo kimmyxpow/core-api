@@ -14,7 +14,7 @@ export class AppController {
 
     async onApplicationBootstrap() {
         Logger.error("Ini ceritanya apa hayo hehehehehehe kon", 'OtaknyaError')
-        Logger.error("Yahaha wahyu", 'OtaknyaError')
+        Logger.error("Yahaha wahyu", 'OtaknyaErrorr')
 
         const queue = this.configService.get<string>('RMQ_QUEUE')
         const conn = await amqplib.connect(this.configService.get<string>('RMQ_URL'))
