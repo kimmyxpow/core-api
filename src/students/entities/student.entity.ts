@@ -1,19 +1,23 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Machine {
+export class Student {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    alamat_mesin: string;
+    rfid: string;
 
     @Column()
-    ruangan: string;
+    nis: string;
 
     @Column()
-    deskripsi_mesin: string;
+    nama: string;
 
-    // @Column({ default: true })
-    // isActive: boolean;
+    @Column()
+    rombel: string;
+
+    @Column()
+    rayon: string;
 }
+

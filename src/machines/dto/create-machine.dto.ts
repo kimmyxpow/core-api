@@ -1,4 +1,5 @@
 export class CreateMachineDto {
-    firstName: string
-    lastName: string
+    alamat_mesin: string;
+    ruangan: string;
+    deskripsi_mesin: string;
 }
