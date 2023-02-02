@@ -1,19 +1,20 @@
-import { IsNotEmpty } from 'class-validator'
+import { IsNotEmpty } from 'class-validator';
+import { Class } from 'src/classes/entities/class.entity';
+import { Region } from 'src/regions/entities/region.entity';
 
 export class CreateStudentDto {
     @IsNotEmpty()
-    rfid: string
+    rfid: string;
 
     @IsNotEmpty()
-    nis: string
+    nis: string;
 
     @IsNotEmpty()
-    name: string
+    name: string;
 
     @IsNotEmpty()
-    class: string
+    class: Class;
 
     @IsNotEmpty()
-    region: string
+    region: Region;
 }
-

@@ -1,9 +1,10 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateRegionDto {
+export class CreateStaffDto {
     @IsNotEmpty()
-    name: string;
+    rfid: string;
 
     @IsNotEmpty()
-    teacher: string;
+    name: string;
 }
+

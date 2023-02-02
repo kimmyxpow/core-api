@@ -1,26 +1,21 @@
-import { Student } from 'src/students/entities/student.entity';
 import {
     Column,
     CreateDateColumn,
     Entity,
-    OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Region {
+export class Teacher {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    name: string;
+    rfid: string;
 
     @Column()
-    teacher: string;
-
-    @OneToMany(() => Student, (student) => student.region)
-    students: Student[];
+    name: string;
 
     @CreateDateColumn()
     created_at: Date;
@@ -28,3 +23,4 @@ export class Region {
     @UpdateDateColumn()
     updated_at: Date;
 }
+

@@ -17,7 +17,9 @@ export class StudentsService {
     }
 
     async findAll() {
-        return await this.studentsRepository.find();
+        return await this.studentsRepository.find({
+            relations: { region: true, class: true },
+        });
     }
 
     async findOne(id: string) {
@@ -32,4 +34,3 @@ export class StudentsService {
         return await this.studentsRepository.delete({ id });
     }
 }
-

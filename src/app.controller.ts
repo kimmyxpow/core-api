@@ -30,6 +30,7 @@ export class AppController {
         channel.consume(queue, (msg) => {
             if (msg !== null) {
                 Logger.log('Dari RMQ gan: ' + msg.content.toString());
+
                 channel.ack(msg);
             } else {
                 Logger.warn('Consumer cancelled by server');
