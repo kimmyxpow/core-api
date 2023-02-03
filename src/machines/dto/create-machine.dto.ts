@@ -1,5 +1,15 @@
+import { IsNotEmpty } from 'class-validator'
+
 export class CreateMachineDto {
-    alamat_mesin: string;
-    ruangan: string;
-    deskripsi_mesin: string;
+    @IsNotEmpty()
+    address: string
+
+    @IsNotEmpty()
+    room: string
+
+    @IsNotEmpty()
+    description: string
+
+    @IsNotEmpty()
+    is_attendance: boolean
 }

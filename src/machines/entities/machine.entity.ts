@@ -1,19 +1,25 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity()
 export class Machine {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id: string
+
+    @Column({ unique: true })
+    address: string
 
     @Column()
-    alamat_mesin: string;
+    room: string
 
     @Column()
-    ruangan: string;
+    description: string
 
-    @Column()
-    deskripsi_mesin: string;
+    @Column({ default: false })
+    is_attendance: boolean
 
-    // @Column({ default: true })
-    // isActive: boolean;
+    @CreateDateColumn()
+    created_at: Date
+
+    @UpdateDateColumn()
+    updated_at: Date
 }
