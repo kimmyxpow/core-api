@@ -1,23 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
-import { MachinesModule } from './machines/machines.module';
-import { Machine } from './machines/entities/machine.entity';
-import { Student } from './students/entities/student.entity';
+import { Module } from '@nestjs/common'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { ConfigModule } from '@nestjs/config'
+import { MachinesModule } from './machines/machines.module'
+import { RegionsModule } from './regions/regions.module'
+import { ClassesModule } from './classes/classes.module'
+import { StaffModule } from './staff/staff.module'
+import { UsersModule } from './users/users.module'
 import { StudentsModule } from './students/students.module';
-import { RegionsModule } from './regions/regions.module';
-import { ClassesModule } from './classes/classes.module';
-import { Class } from './classes/entities/class.entity';
-import { Region } from './regions/entities/region.entity';
 import { TeachersModule } from './teachers/teachers.module';
-import { StaffModule } from './staff/staff.module';
-import { Teacher } from './teachers/entities/teacher.entity';
-import { Staff } from './staff/entities/staff.entity';
-import { StudentsScanModule } from './students-scan/students-scan.module';
-import { TeachersScanModule } from './teachers-scan/teachers-scan.module';
-import { StaffScanModule } from './staff-scan/staff-scan.module';
 
 @Module({
     imports: [
@@ -29,20 +21,18 @@ import { StaffScanModule } from './staff-scan/staff-scan.module';
             username: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-            entities: [Machine, Student, Teacher, Staff, Class, Region],
+            autoLoadEntities: true,
             synchronize: true,
         }),
         MachinesModule,
-        StudentsModule,
         RegionsModule,
         ClassesModule,
-        TeachersModule,
         StaffModule,
-        StudentsScanModule,
-        TeachersScanModule,
-        StaffScanModule,
+        UsersModule,
+        StudentsModule,
+        TeachersModule,
     ],
     controllers: [AppController],
     providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

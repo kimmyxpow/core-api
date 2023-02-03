@@ -1,4 +1,4 @@
-import { Student } from 'src/students/entities/student.entity';
+import { User } from './../../users/entities/user.entity'
 import {
     Column,
     CreateDateColumn,
@@ -6,22 +6,22 @@ import {
     OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
-} from 'typeorm';
+} from 'typeorm'
 
 @Entity()
 export class Class {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id: string
 
     @Column()
-    name: string;
+    name: string
 
-    @OneToMany(() => Student, (student) => student.class)
-    students: Student[];
+    @OneToMany(() => User, (user) => user.class)
+    students: User[]
 
     @CreateDateColumn()
-    created_at: Date;
+    created_at: Date
 
     @UpdateDateColumn()
-    updated_at: Date;
+    updated_at: Date
 }

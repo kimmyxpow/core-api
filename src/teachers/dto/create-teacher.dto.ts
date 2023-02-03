@@ -1,10 +1,16 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator'
 
 export class CreateTeacherDto {
     @IsNotEmpty()
-    rfid: string;
+    rfid: string
 
     @IsNotEmpty()
-    name: string;
+    name: string
+
+    @IsEmail()
+    email: string
+
+    @IsNotEmpty()
+    password: string
 }
 

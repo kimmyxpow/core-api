@@ -5,7 +5,7 @@ export class Machine {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column()
+    @Column({ unique: true })
     address: string
 
     @Column()
