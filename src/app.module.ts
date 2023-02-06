@@ -8,9 +8,14 @@ import { RegionsModule } from './regions/regions.module'
 import { ClassesModule } from './classes/classes.module'
 import { StaffModule } from './staff/staff.module'
 import { UsersModule } from './users/users.module'
-import { StudentsModule } from './students/students.module';
-import { TeachersModule } from './teachers/teachers.module';
-import { ScansModule } from './scans/scans.module';
+import { StudentsModule } from './students/students.module'
+import { TeachersModule } from './teachers/teachers.module'
+import { ScansModule } from './scans/scans.module'
+import { User } from './users/entities/user.entity'
+import { Region } from './regions/entities/region.entity'
+import { Class } from './classes/entities/class.entity'
+import { Scan } from 'src/scans/entities/scan.entity'
+import { Machine } from './machines/entities/machine.entity'
 
 @Module({
     imports: [
@@ -22,7 +27,7 @@ import { ScansModule } from './scans/scans.module';
             username: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-            autoLoadEntities: true,
+            entities: [User, Region, Class, Scan, Machine],
             synchronize: true,
         }),
         MachinesModule,
@@ -37,4 +42,4 @@ import { ScansModule } from './scans/scans.module';
     controllers: [AppController],
     providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

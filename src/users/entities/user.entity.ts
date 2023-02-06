@@ -1,7 +1,15 @@
 import { Scan } from './../../scans/entities/scan.entity'
 import { Region } from './../../regions/entities/region.entity'
 import { Class } from './../../classes/entities/class.entity'
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    ManyToOne,
+    OneToMany,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from 'typeorm'
 
 @Entity()
 export class User {

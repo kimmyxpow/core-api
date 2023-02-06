@@ -1,6 +1,14 @@
 import { Machine } from 'src/machines/entities/machine.entity'
 import { User } from 'src/users/entities/user.entity'
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import {
+    BeforeInsert,
+    Column,
+    CreateDateColumn,
+    Entity,
+    ManyToOne,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from 'typeorm'
 
 @Entity()
 export class Scan {
@@ -11,10 +19,16 @@ export class Scan {
     user: User
 
     @Column()
-    date: Date
+    date: string
+
+    @Column()
+    rfid: string
+
+    @Column()
+    address: string
 
     @ManyToOne(() => Machine, (machine) => machine.scans, { nullable: true })
-    machine: User
+    machine: Machine
 
     @CreateDateColumn()
     created_at: Date
